@@ -110,3 +110,9 @@ services:
       - -Ctransport.host=localhost
     environment:
       - CRATE_HEAP_SIZE=128m
+  supervisord:
+    image: khoerintus/supervisord
+    volumes:
+    - ./plugins/input/supervisord/testdata/supervisord.conf:/etc/supervisor/supervisord.conf
+    ports:
+      - "9001:9001"
